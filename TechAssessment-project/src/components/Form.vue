@@ -1,18 +1,22 @@
 <script>
+export default {
+
+}
 </script>
 
 <template>
     <div class="form">
 
         <div>
-            <h2>Please select a date:</h2>
+            <p class="h3">Please select a date:</p>
             <input type="date" id="date">
         </div>
 
         <br>
 
-        <div id="timeInput">
-            <h2>Please select a time:</h2>
+        <div>
+            <label for="time-input"></label>
+            <p class="h3">Please select a time:</p>
 
             <label for="" class="time">HOUR</label>
             <select name="" id="">
@@ -21,19 +25,22 @@
                 </option>
             </select>
 
-            <label for="" class="time">MINUTE</label>
-            <select name="" id="">
+            <label for="minute" class="time">MINUTE</label>
+
+            <select name="" id="minute">
                 <option value="" v-for="(i, min) in 60"> 
                     {{ min }}
                 </option>
             </select>
 
-            <label for="" class="time">SECOND</label>
-            <select name="" id="">
+            <label for="second" class="time">SECOND</label>
+            <select name="" id="second">
                 <option value="" v-for="(i, sec) in 60"> 
                     {{ sec }}
                 </option>
             </select>
+
+
 
         </div>
 
@@ -47,6 +54,7 @@
     margin: auto;
     /* border: 1px solid white; */
     text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .time{
@@ -60,8 +68,5 @@
     border-radius: 9px;
 }
 
-#timeInput{
-    flex: auto;
-}
 
 </style>
