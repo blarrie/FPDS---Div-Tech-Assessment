@@ -9,16 +9,17 @@ import Header from './components/Header.vue'
 </script>
 
 <template>
-  <Header />
-  <div class="container text-center">
-    <div class="row my-2">
-      <Form @add-date-time="fetchImages" />
-    </div>
+  <div class="main"> 
+    <Header />
+    <div class="container text-center">
+      <div class="row my-2">
+        <Form @add-date-time="fetchImages" />
+      </div>
 
-    <div class="row">
-      <TrafficImages :cameras="cameras" />
+      <div class="row">
+        <TrafficImages :cameras="cameras" />
+      </div>
     </div>
-
   </div>
 </template>
 
@@ -40,41 +41,25 @@ export default {
         .then(response => {
           console.log(response.data)
           this.cameras = response.data.items[0].cameras
+          for (this.cam in this.cameras) {
+            // console.log(this.cameras[this.cam].location.longitude)
+            this.location = this.cameras[this.cam].location
+            this.locations.push(this.location)
+          }
         })
-        .catch(error=>{
-          console.log("error at traffic images api")
-        })
-
       console.log("END traffic images api")
+
+    },
+    async fetchLocation() {
 
     }
   },
   data() {
     return {
-      cameras: []
+      cameras: [],
+      locations: []
     }
   }
 
 }
 </script>
-
-
-<style scoped>
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>

@@ -31,7 +31,7 @@
                     </option>
                 </select>
             </div>
-            <button class="btn btn-primary m-3" type="submit" >Submit</button>
+            <button class="btn btn-primary m-3" type="submit" style="background-color: #BE73F7;">Submit</button>
         </form>
     </div>
 </template>
