@@ -17,7 +17,7 @@ import Header from './components/Header.vue'
       </div>
 
       <div class="row">
-        <TrafficImages :cameras="cameras" />
+        <TrafficImages :cameras="cameras" :locations="locations" :dateTime="dateTime"/>
       </div>
     </div>
   </div>
@@ -30,6 +30,8 @@ export default {
   methods: {
     async fetchImages(dateTime) {
       console.log("START traffic images api")
+      this.dateTime = dateTime
+
       const date = dateTime.date
       const hour = dateTime.hour
       const min = dateTime.min
@@ -49,15 +51,13 @@ export default {
         })
       console.log("END traffic images api")
 
-    },
-    async fetchLocation() {
-
     }
   },
   data() {
     return {
       cameras: [],
-      locations: []
+      locations: [],
+      dateTime: {}
     }
   }
 
