@@ -1,9 +1,3 @@
-<script>
-export default{
-    name: "Header",
-}
-</script>
-
 <template>
     <nav class="navbar" style="background-color: antiquewhite;">
         <div class="container-fluid m-auto">
@@ -16,3 +10,9 @@ export default{
         </div>
     </nav>
 </template>
+
+<script>
+export default{
+    name: "Header"
+}
+</script>
