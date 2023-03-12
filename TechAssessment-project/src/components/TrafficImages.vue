@@ -1,38 +1,31 @@
+<template>
+    <div v-for="camera in cameras" class="col-lg-4">
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <!-- Location: {{ camera.location }} -->
+                Location
+            </button>
+            <ul class="dropdown-menu">
+                <li class="text-center">
+                    <img class="dropdown-item img-fluid" :src="camera.image">
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</template>
+
 <script>
-import axios from "axios"
 
 export default {
     name: "TrafficImages",
+    props:['cameras']
+    ,
     data() {
-        return {
-            list:[]
-        }
+        return {}
     },
+    methods:{
 
-    async mounted() {
-        console.log("---START traffic images API-----")
-        // set api with date and time input
-        // this.api = "https://api.data.gov.sg/v1/transport/traffic-images?date_time=" + {date} + "T" + {hr} + "%3A" + {min} + "%3A" + {sec}
-        this.api = "https://api.data.gov.sg/v1/transport/traffic-images"
-
-        // async api call
-        axios.get(this.api)
-            .then(response => {
-                // get the long and lang 
-                var allCameras = response.data.items[0].cameras
-                this.list = allCameras
-
-                // figure out how to get each camera in this array can i for loop this?
-                console.log(this.list)
-            })
-
-        console.log("---END traffic images API-----")
     }
 }
 </script>
-
-<template>
-    <div>
-        <img v-for="camera in list" :src="camera.image" class="img-fluid" alt="" >
-    </div>
-</template>
