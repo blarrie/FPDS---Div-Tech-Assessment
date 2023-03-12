@@ -11,7 +11,6 @@
                 </li>
             </ul>
         </div>
-
     </div>
 </template>
 
@@ -24,8 +23,8 @@ export default {
     data() {
         return {}
     },
-    methods:{
-
+    mounted(){
+        
     }
 }
 </script>

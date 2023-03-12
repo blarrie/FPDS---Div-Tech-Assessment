@@ -28,7 +28,7 @@ export default {
 
   methods: {
     async fetchImages(dateTime) {
-
+      console.log("START traffic images api")
       const date = dateTime.date
       const hour = dateTime.hour
       const min = dateTime.min
@@ -41,6 +41,11 @@ export default {
           console.log(response.data)
           this.cameras = response.data.items[0].cameras
         })
+        .catch(error=>{
+          console.log("error at traffic images api")
+        })
+
+      console.log("END traffic images api")
 
     }
   },
